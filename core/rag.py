@@ -34,7 +34,8 @@ LEVELS = {
         "The reader has no tax or legal background. Up to about 220 words. "
         "Write as if explaining to a smart friend: plain everyday words, no legal jargon "
         "(say 'company' not 'corporate entity', 'the tax office' not 'the Minister'). "
-        "If an idea is abstract, one short everyday analogy can help, but only if it genuinely makes it clearer."
+        "If an idea is abstract, one short everyday analogy can help, but only if it genuinely makes it clearer. "
+        "Still cite one page reference in brackets at the end, e.g. (p 1069)."
     ),
     "Familiar, no formal training": (
         "The reader understands everyday tax ideas (income, tax returns, companies) but has no formal training. "
