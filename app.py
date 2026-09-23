@@ -193,13 +193,18 @@ def save_to_folder_button(client, question, v, key):
                 folder_id = folders[options.index(choice) - 1]["id"]
             storage.save_to_folder(folder_id, question, v["level"], v["answer"],
                                    diagram=v.get("diagram"), sources=v.get("sources"))
-            try:
-                with st.spinner("Updating folder title..."):
-                    title = title_folder(client, folder_id)
-                st.toast(f"Saved to “{title}”", icon=":material/check:")
-            except Exception as e:
-                print(f"[folder title error] {e!r}")
-                st.toast("Saved. (The folder title couldn't be updated this time.)", icon=":material/check:")
+            folder = storage.get_folder(user, folder_id)
+            if folder["renamed"]:
+                # The user named this folder themselves, so keep their name
+                st.toast(f"Saved to “{folder['title']}”", icon=":material/check:")
+            else:
+                try:
+                    with st.spinner("Updating folder title..."):
+                        title = title_folder(client, folder_id)
+                    st.toast(f"Saved to “{title}”", icon=":material/check:")
+                except Exception as e:
+                    print(f"[folder title error] {e!r}")
+                    st.toast("Saved. (The folder title couldn't be updated this time.)", icon=":material/check:")
             st.rerun()
 
 
@@ -298,7 +303,7 @@ def sidebar():
 
 
 # ---------- Folder view (main page) ----------
-def folder_screen():
+def folder_screen(client):
     """Show a saved folder in the main page, laid out like the original chat."""
     user = st.session_state.name
     folder = storage.get_folder(user, st.session_state.open_folder)
@@ -312,19 +317,44 @@ def folder_screen():
         st.rerun()
 
     st.title(folder["title"])
-    st.caption(f"Folder · {len(items)} saved answer{'s' if len(items) != 1 else ''} · titled automatically by AI")
+    count = f"{len(items)} saved answer{'s' if len(items) != 1 else ''}"
+    if folder["renamed"]:
+        st.caption(f"Folder · {count} · named by you (the AI won't change this name)")
+    else:
+        st.caption(f"Folder · {count} · titled automatically by AI, updated as you save more")
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
+        with st.popover(":material/edit: Rename", width="stretch"):
+            new_title = st.text_input("Folder name", value=folder["title"], max_chars=60,
+                                      key=f"rename_input_{folder['id']}")
+            if st.button("Save name", type="primary", key=f"rename_save_{folder['id']}"):
+                if new_title.strip():
+                    storage.rename_folder(folder["id"], new_title.strip(), by_user=True)
+                    st.rerun()
+                else:
+                    st.warning("The name can't be empty.")
+            if folder["renamed"] and items:
+                st.caption("Or hand naming back to the AI:")
+                if st.button(":material/auto_awesome: Let AI name it", key=f"ai_name_{folder['id']}"):
+                    storage.let_ai_name(folder["id"])
+                    try:
+                        with st.spinner("Choosing a title..."):
+                            title_folder(client, folder["id"])
+                    except Exception as e:
+                        print(f"[folder title error] {e!r}")
+                        st.toast("The AI couldn't choose a title just now; it will try next time you save.")
+                    st.rerun()
+    with col2:
         if items:
             st.download_button(
-                ":material/download: Download folder",
+                ":material/download: Download",
                 data=storage.folder_as_markdown(folder["title"], items),
                 file_name=f"{folder['title']}.md",
                 width="stretch",
             )
-    with col2:
-        with st.popover(":material/folder_delete: Delete folder", width="stretch"):
+    with col3:
+        with st.popover(":material/folder_delete: Delete", width="stretch"):
             st.write("Delete this folder and everything in it?")
             if st.button("Yes, delete it", type="primary", key="confirm_delete_folder"):
                 storage.delete_folder(user, folder["id"])
@@ -401,7 +431,7 @@ def chat_screen():
     sidebar()
 
     if st.session_state.open_folder is not None:
-        folder_screen()
+        folder_screen(client)
         return
 
     st.title(f"Welcome, {st.session_state.name}.")

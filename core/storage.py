@@ -28,16 +28,19 @@ def _connect():
     conn.row_factory = sqlite3.Row          # lets us read columns by name, e.g. row["title"]
     conn.execute("""CREATE TABLE IF NOT EXISTS folders (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user TEXT, title TEXT)""")
+        user TEXT, title TEXT, renamed INTEGER DEFAULT 0)""")
     conn.execute("""CREATE TABLE IF NOT EXISTS saved (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         folder_id INTEGER, question TEXT, level TEXT, answer TEXT, saved_at TEXT,
         diagram TEXT, sources TEXT)""")
-    # Databases created by the earlier version lack the diagram/sources columns: add them
+    # Databases created by earlier versions lack some columns: add them
     columns = [row["name"] for row in conn.execute("PRAGMA table_info(saved)")]
     for column in ("diagram", "sources"):
         if column not in columns:
             conn.execute(f"ALTER TABLE saved ADD COLUMN {column} TEXT")
+    folder_columns = [row["name"] for row in conn.execute("PRAGMA table_info(folders)")]
+    if "renamed" not in folder_columns:
+        conn.execute("ALTER TABLE folders ADD COLUMN renamed INTEGER DEFAULT 0")
     return conn
 
 
@@ -52,21 +55,35 @@ def create_folder(user):
         return cur.lastrowid
 
 
-def rename_folder(folder_id, title):
+def rename_folder(folder_id, title, by_user=False):
+    """Change a folder's title.
+
+    by_user=True means the user typed the name themselves. From then on the AI
+    stops retitling the folder when new answers are saved into it.
+    """
     with _connect() as conn:
-        conn.execute("UPDATE folders SET title = ? WHERE id = ?", (title, folder_id))
+        if by_user:
+            conn.execute("UPDATE folders SET title = ?, renamed = 1 WHERE id = ?", (title, folder_id))
+        else:
+            conn.execute("UPDATE folders SET title = ? WHERE id = ?", (title, folder_id))
+
+
+def let_ai_name(folder_id):
+    """Hand naming back to the AI (undo a user rename)."""
+    with _connect() as conn:
+        conn.execute("UPDATE folders SET renamed = 0 WHERE id = ?", (folder_id,))
 
 
 def list_folders(user):
     with _connect() as conn:
         return conn.execute(
-            "SELECT id, title FROM folders WHERE user = ? ORDER BY id DESC", (user,)).fetchall()
+            "SELECT id, title, renamed FROM folders WHERE user = ? ORDER BY id DESC", (user,)).fetchall()
 
 
 def get_folder(user, folder_id):
     with _connect() as conn:
         return conn.execute(
-            "SELECT id, title FROM folders WHERE id = ? AND user = ?", (folder_id, user)).fetchone()
+            "SELECT id, title, renamed FROM folders WHERE id = ? AND user = ?", (folder_id, user)).fetchone()
 
 
 def delete_folder(user, folder_id):
