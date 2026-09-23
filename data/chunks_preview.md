@@ -1,0 +1,286 @@
+# Chunks — MNR v Cameron [1974] SCR 1062
+
+17 chunks · 4791 tokens total · min 153 · max 532
+
+## C01 · Case details: parties, judges, counsel and outcome
+
+_Headnote — the law reporter's summary, not the Court's own words · pp 1062, 1063, 1070 · ¶[1, 7, 8, 9, 10, 40, 41, 42] · 207 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Headnote — the law reporter's summary, not the Court's own words
+Topic: Case details: parties, judges, counsel and outcome
+Pages: pp 1062, 1063, 1070
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+The Minister of National Revenue Appellant; and James A. Cameron Respondent. 1972: May 29, 30; 1972: June 29. Present: Abbott, Martland, Ritchie, Pigeon and Laskin JJ. ON APPEAL FROM THE EXCHEQUER COURT OF CANADA
+
+APPEAL from a judgment of the Exchequer Court allowing an appeal against income tax assessments. Appeal dismissed.
+
+G. W. Ainslie, Q.C., and J. R. Power, for the appellant.
+
+J. G. McDonald, Q.C., and D. C. Nathanson, for the respondent.
+
+The judgment of the Court was delivered by
+
+Appeal dismissed with costs.
+
+Solicitor for the appellant: D. S. Maxwell, Ottawa.
+
+Solicitors for the respondent: Owen, Bird & McDonald, Vancouver.
+```
+
+## C02 · Catchwords: the issue in index form
+
+_Headnote — the law reporter's summary, not the Court's own words · p 1062 · ¶[2] · 153 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Headnote — the law reporter's summary, not the Court's own words
+Topic: Catchwords: the issue in index form
+Pages: p 1062
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+Taxation—Income tax—Management company— Employee of management company appointed sales manager of another company—Salaries paid to management company by the other company—Management company receiving a percentage of net profits of the other company—Portion of these profits paid to employee as a bonus—Employee assessed for portion of the amount received but not distributed by management company—Did amounts paid to management company represent income to the employee?
+```
+
+## C03 · Headnote: summary of the facts
+
+_Headnote — the law reporter's summary, not the Court's own words · pp 1062–1063 · ¶[3] · 408 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Headnote — the law reporter's summary, not the Court's own words
+Topic: Headnote: summary of the facts
+Pages: pp 1062–1063
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+Respondent and two other persons were employees of a private company, hereinafter referred to as “Independent”, the principal object of which was provision of management services for business of all kinds. Independent concluded an agreement with another company, hereinafter referred to as “Campbell Limited”, by which it was to provide management services to the latter. To this end respondent was appointed sales manager by the president of Campbell Limited. During 1965 and 1966 respondent and his two associates were assigned by their company to work for Campbell Limited. The latter paid the salaries of these three employees to Independent, and Independent paid them the amounts in question. In addition, under an agreement between the two companies, Campbell Limited paid 15 per cent of net annual profits, before taxes, on its consolidated operations in all cities, to Independent, which was to apply such moneys on the purchase of common shares of Campbell Limited. In 1965 and 1966 those profits amounted to $37,745 and $119,710 respectively, and Independent distributed a portion of the latter sum to its three employees as a bonus: they loaned the money to Independent, which in turn purchased further shares. Respondent paid income tax in respect of these bonus payments, but did not include in his tax return his portion of the amounts paid to Independent by Campbell Limited, but not distributed. He was assessed by appellant on this amount, as being derived from his office or employment with Campbell Limited. The Exchequer Court allowed the appeals by respondent. Hence the appeal to this Court.
+```
+
+## C04 · Headnote: what was held and why, in brief
+
+_Headnote — the law reporter's summary, not the Court's own words · p 1063 · ¶[4, 5, 6] · 354 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Headnote — the law reporter's summary, not the Court's own words
+Topic: Headnote: what was held and why, in brief
+Pages: p 1063
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+Held: The appeal should be dismissed.
+
+The payments made to Independent by Campbell Limited, to pay the fee of 15 per cent of net profits, were made pursuant to an agreement. Independent reported the receipts as income and paid income tax to appellant. Payment of these moneys by Campbell Limited could not be legally enforced by respondent or his two associates, or by all three together, but only by Independent. Respondent could not legally compel Independent to pay these moneys to him.
+
+The agreement between Campbell Limited and Independent was not a document executed by the parties which was intended by them to give to third parties or to the Court the appearance of creating between the parties legal rights and obligations different from legal rights and obligations which the parties intended to create. The legal rights and obligations which it created were exactly those which the parties intended. The president of Campbell Limited, who desired to deal with a company, and not with the three individuals, gave them the opportunity to provide management for his company, through a company, incorporated for that purpose, for a fee based, in part, on the net profits of Campbell Limited. If a saving in income tax resulted to anyone, that was incidental to the overall plan.
+```
+
+## C05 · The appeal, and the three men's original jobs at Campbell Limited
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1063–1064 · ¶[11, 12] · 303 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: The appeal, and the three men's original jobs at Campbell Limited
+Pages: pp 1063–1064
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+MARTLAND J.—This appeal is from a judgment of the Exchequer Court, which allowed the appeals of James A. Cameron, the respondent in the present appeal, from assessments to income tax for his 1965 and 1966 taxation years.
+
+Prior to August 19, 1964, the respondent and Messrs Robert A. Steele and Gordon Symon were employed by J. K. Campbell & Associates Limited, hereinafter referred to as “Campbell Limited”, a company carrying on business as a roofing and heating contractor, in the four western provinces, with its head office in Edmonton. Steele was the manager of the Calgary branch of this company, Symon was the manager of its Edmonton branch, and the respondent was the superintendent of the company’s roofing department and had his office in Edmonton. The respondent received a salary plus a bonus of five per cent of the net profits of the company’s operations in the Edmonton and Calgary branches. Steele received, in addition to his salary, a bonus of three per cent of the company’s net profits from the Calgary branch.
+```
+
+## C06 · J. K. Campbell's succession plan and why he wanted to deal with a company
+
+_Reasons of Martland J, delivering the judgment of the Court · p 1064 · ¶[13] · 219 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: J. K. Campbell's succession plan and why he wanted to deal with a company
+Pages: p 1064
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+Mr. J. K. Campbell, the president of Campbell Limited, and the owner of all its issued common shares, testified that he regarded Steele, Symon and the respondent as the promising men in his company, that he was anxious that they should participate in the ownership of its common shares, but that they should not control it during his active business life. He desired that, upon his retirement or death, control of Campbell Limited should devolve upon them. He did not wish to make individual arrangements with each of them regarding the acquisition of an equity interest in his company, but preferred to effect this through a corporation.
+```
+
+## C07 · Incorporation and organisation of Independent Management Ltd.
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1064–1065 · ¶[14, 15] · 262 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: Incorporation and organisation of Independent Management Ltd.
+Pages: pp 1064–1065
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+The matter was discussed by Campbell with Steele, Symon and the respondent. Campbell indicated that he was prepared to make an arrangement with a company controlled by the three of them. As a result, Steele, Symon and the respondent caused to be incorporated, on March 12, 1964, under the laws of Alberta, a private company called Independent Management Ltd., hereinafter referred to as “Independent.” Its principal object was the provision of management services for businesses of all kinds. Its authorized capital was $20,000 divided into 10,000 common shares and 10,000 non-cumulative redeemable preferred shares each of the par value of one dollar.
+
+At the organization meetings held on April 17, 1964, Steele, Symon and the respondent became shareholders and directors of Independent. The respondent became president, Steele the vice-president and Symon the secretary-treasurer of that company. Each became an employee of Independent under an oral agreement.
+```
+
+## C08 · The agreement of 10 August 1964 between Independent and Campbell Limited (all six terms)
+
+_Reasons of Martland J, delivering the judgment of the Court · p 1065 · ¶[16, 17, 18, 19, 20, 21, 22] · 356 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: The agreement of 10 August 1964 between Independent and Campbell Limited (all six terms)
+Pages: p 1065
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+On August 10, 1964, Independent entered into an agreement with Campbell Limited. It provided, inter alia, that:
+
+1. Independent would provide to Campbell Limited personnel and management services as the latter might require, from and after August 31, 1964.
+
+2. Campbell Limited was entitled to designate to Independent the kind of personnel which it required and Independent could discharge that duty through its existing personnel or through other personnel obtained for this purpose.
+
+3. All personnel supplied by Independent was, during the period such personnel was used by Campbell Limited, to be subject, in all matters, to the direction and control of the president or other designated officer of Campbell Limited.
+
+4. Independent was to perform such duties as Campbell Limited might designate.
+
+5. The fee for the services provided by Independent was 15 per cent of net annual profits, before taxes, on the consolidated operations of Campbell Limited in all cities. Such moneys were to be applied on the purchase of common shares of Campbell Limited by Independent from J. K. Campbell, pursuant to a separate agreement made between Independent and J. K. Campbell.
+
+6. Campbell Limited also agreed to pay to Independent its budgeted expenses to cover the salaries of personnel provided by Independent and sundry like expenses.
+```
+
+## C09 · Resignations, and Cameron's appointment as 'sales manager' (nothing visibly changed)
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1065–1066 · ¶[23, 24] · 394 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: Resignations, and Cameron's appointment as 'sales manager' (nothing visibly changed)
+Pages: pp 1065–1066
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+On August 19, 1964, Steele, Symon and the respondent submitted their resignations as employees of Campbell Limited effective as of August 31, 1964. These were accepted on August 21.
+
+By letter dated September 22, 1964, J. K. Campbell on behalf of Campbell Limited appointed the respondent as sales manager of Campbell Limited effective September 1, 1964. Mr. Campbell explained in his testimony that the respondent was merely appointed to that position in order that he might have the status that the title of the office implied and that was the service that the respondent as an employee of Independent was to perform for Campbell Limited. He further emphasized that the title which was so conferred upon the respondent (which was the same as he had held as an employee of Campbell Limited) was deliberately bestowed in order that customers of Campbell Limited would be unaware of any change in the conduct of the business of Campbell Limited which he considered would be detrimental to the conduct of that business. The lesser employees of Campbell Limited were not apprised of any change in the functions of the respondent. The respondent signed correspondence in the name of Campbell Limited over the title so conferred upon him. He occupied the same office space and facilities as he had done before as an employee of Campbell Limited and exercised the same direction and control over the other employees of Campbell Limited as he had done formerly.
+```
+
+## C10 · Payments in 1965 and 1966: salaries, the 15% fee and the bonus lent back
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1066–1067 · ¶[25, 26, 27] · 238 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: Payments in 1965 and 1966: salaries, the 15% fee and the bonus lent back
+Pages: pp 1066–1067
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+During 1965 and 1966 Campbell Limited paid to Independent the salaries of the respondent, Steele and Symon, which amounts were disbursed by Independent to the three men, and included by them in their income as salary from an office or employment.
+
+The auditor ascertained that 15 per cent of the net annual profit before taxes of Campbell Limited’s consolidated operations in all cities was:
+1965 — $37,745
+1966 — $119,710
+
+Out of the latter sum of $119,710, paid to Independent, a portion was distributed by Independent to the respondent, Steele and Symon as a bonus. They loaned the money which they received (after providing for personal income taxes) back to Independent, which in turn purchased further shares from J. K. Campbell.
+```
+
+## C11 · What Cameron reported, and the Minister's assessments
+
+_Reasons of Martland J, delivering the judgment of the Court · p 1067 · ¶[28, 29] · 190 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: What Cameron reported, and the Minister's assessments
+Pages: p 1067
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+The respondent in his returns of income included therein the portion of the sums paid by Campbell Limited which he actually received from Independent, but did not include the portion which Independent had not distributed to him.
+
+The Minister in assessing the respondent included in his income for:
+1965 — $12,581.67
+1966 — $15,403.33 which amounts represented a one-third portion of the moneys paid by Campbell Limited to Independent which had not been distributed by Independent and which had not been included in his income for his 1965 and 1966 taxation years.
+```
+
+## C12 · The Minister's argument: Cameron was really Campbell Limited's employee
+
+_Reasons of Martland J, delivering the judgment of the Court · p 1067 · ¶[30] · 205 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: The Minister's argument: Cameron was really Campbell Limited's employee
+Pages: p 1067
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+The position taken by the appellant on this appeal is that these amounts represented income received by the respondent from his office or employment with Campbell Limited. It was contended that the respondent during the taxation years was a servant of Campbell Limited, that his resignation was a sham, that Independent never supplied personnel or performed services for Campbell Limited, and that the true nature of the agreement between Independent and Campbell Limited and the arrangement between the respondent and Independent was that income earned by the respondent as an employee of Campbell Limited would be transferred by it to Independent.
+```
+
+## C13 · Why the vicarious-liability cases do not help: the real question
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1067–1068 · ¶[31] · 218 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: Why the vicarious-liability cases do not help: the real question
+Pages: pp 1067–1068
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+In support of the submission that the respondent continued to be a servant of Campbell Limited, we were referred to a number of decisions, both English and Canadian, but those cases, in the main, were concerned with the tests for determining whether or not a person was a servant for whose tort the master would be vicariously liable. That is not the issue here. The question here is whether the moneys paid by Campbell Limited to Independent in payment of the fee of 15 per cent of net profits payable under the agreement of August 10, 1964, represented, not income to Independent, but income to the respondent, Steele and Symon.
+```
+
+## C14 · Only Independent could enforce payment of the fee
+
+_Reasons of Martland J, delivering the judgment of the Court · p 1068 · ¶[32] · 158 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: Only Independent could enforce payment of the fee
+Pages: p 1068
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+Those payments were made pursuant to an agreement. The receipts were reported by Independent as income, and income tax was paid by Independent and received by the appellant. Payment of those moneys by Campbell Limited could not be legally enforced by the respondent, Steele or Symon, or all three together, but only by Independent. The respondent could not legally compel Independent to pay the money to him.
+```
+
+## C15 · The sham argument and the Snook definition of a sham
+
+_Reasons of Martland J, delivering the judgment of the Court · p 1068 · ¶[33, 34] · 313 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: The sham argument and the Snook definition of a sham
+Pages: p 1068
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+Contains quoted material, labelled in brackets.
+
+The appellant’s submission really rests upon the contention that the agreement between Campbell Limited and Independent was nothing but a sham. Both counsel cited the definition of that word by Diplock L.J. in Snook v. London & West Riding Investments, Ltd. [[1967] 1 All E.R. 518, p. 528]:
+
+[Quotation — Diplock L.J. in Snook v. London & West Riding Investments, Ltd. (English Court of Appeal)]
+As regards the contention of the plaintiff that the transactions between himself, Auto-Finance, Ltd. and the defendants were a “sham”, it is, I think, necessary to consider what, if any, legal concept is involved in the use of this popular and pejorative word. I apprehend that, if it has any meaning in law, it means acts done or documents executed by the parties to the “sham” which are intended by them to give to third parties or to the court the appearance of creating between the parties legal rights and obligations different from the actual legal rights and obligations (if any) which the parties intend to create.
+[End of quotation]
+```
+
+## C16 · The trial judge's findings of fact on J. K. Campbell's evidence
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1068–1069 · ¶[35, 36, 37] · 532 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: The trial judge's findings of fact on J. K. Campbell's evidence
+Pages: pp 1068–1069
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+Contains quoted material, labelled in brackets.
+
+On this issue we have findings of fact made by the learned trial judge, and based on the testimony, not of the respondent, Steel or Symon, but of J. K. Campbell: They are as follows:
+
+[Quotation — findings of the trial judge (Exchequer Court). 'I' here is the trial judge, not Martland J]
+The purpose of the insertion of the management setup was not for more efficient management of Campbell Ltd. That could have been achieved by continuing as was done before. J. K. Campbell testified that the incorporation of Independent was to serve as a vehicle whereby those who had been senior employees of Campbell Ltd. could purchase common shares held by him in Campbell Ltd. He did not wish to deal with Cameron, Steele and Symon, who were the senior employees at the time of the initiation of the plan in their personal capacities. He did say he wished to deal with a corporate entity. This he is entitled to do and in that decision he was no doubt guided by the advice of his accountant. Furthermore he did not wish to necessarily restrict himself to dealing with those three persons. There would be no impediment to other persons becoming shareholders in Independent. In fact Symon disposed of his shares in Independent and the arrangements continued without him, and another corporate entity, Modern, became a shareholder in Independent.
+[End of quotation]
+
+[Quotation continues — trial judge (Exchequer Court)]
+I accept J. K. Campbell’s testimony that this objective was the primary purpose. He was looking forward to the time of his retirement and making provision for the disposition of his shares in Campbell Ltd. in that event and in the event of his death and at the same time providing for the orderly continuance of the successful business, in which he felt a pride and which bore his name and of which he was the founder, after his retirement. If a saving in income tax resulted to anyone that was incidental to the overall plan.
+[End of quotation]
+```
+
+## C17 · Conclusion: not a sham; tax saving incidental; appeal dismissed
+
+_Reasons of Martland J, delivering the judgment of the Court · pp 1069–1070 · ¶[38, 39] · 281 tokens_
+
+```text
+MNR v Cameron [1974] SCR 1062 — Reasons of Martland J, delivering the judgment of the Court
+Topic: Conclusion: not a sham; tax saving incidental; appeal dismissed
+Pages: pp 1069–1070
+In this case the appellant is the Minister of National Revenue (the tax authority) and the respondent is James A. Cameron (the taxpayer).
+
+In the light of this finding, I am not prepared to find that the agreement between Campbell Limited and Independent was a sham. The legal rights and obligations which it created were exactly those which the parties intended. The incorporation of Independent, the making of the agreement, the resignations of the respondent, Steele and Symon were all a part of an arrangement worked out between J. K. Campbell, who controlled Campbell Limited, and the three senior employees of that company. Mr. Campbell, who desired to deal with a company, and not with the three individuals, gave them the opportunity to provide management for his company, through a company, incorporated for that purpose, for a fee based, in part, on the net profits of Campbell Limited. This was done, and, as the learned trial judge says, “If a saving in income tax resulted to anyone that was incidental to the overall plan.”
+
+I would dismiss the appeal with costs.
+```

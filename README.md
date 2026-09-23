@@ -44,3 +44,8 @@ Legal AI: Design and Development
 >from openai import OpenAI
 3. Import python-dotenv
 >from dotenv import load_dotenv
+
+
+## Have Claude clean the PDF
+
+## Sensibly Chunk the File

@@ -1,0 +1,98 @@
+{
+  "chunks": [
+    {
+      "title": "Case Overview",
+      "paragraphs": [
+        1
+      ],
+      "reason": "This paragraph provides a general overview of the case, including the parties involved, the dates, and the judges presiding over the appeal."
+    },
+    {
+      "title": "Issue Presented",
+      "paragraphs": [
+        2
+      ],
+      "reason": "This paragraph presents the central legal question regarding the taxation of amounts paid to a management company and their treatment as income for an employee under the assessment of income tax."
+    },
+    {
+      "title": "Facts - Background and Agreements",
+      "paragraphs": [
+        3,
+        12,
+        13,
+        14,
+        15
+      ],
+      "reason": "These paragraphs provide the background facts of the case, including the employment history of the parties involved and the formation of the management company, Independent."
+    },
+    {
+      "title": "Facts - Agreement and Implementation",
+      "paragraphs": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24
+      ],
+      "reason": "These paragraphs explain the specific agreement between Independent and Campbell Limited, the roles assigned under the agreement, and how the personnel changes were implemented."
+    },
+    {
+      "title": "Facts - Financial Operations and Tax Assessments",
+      "paragraphs": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "reason": "These paragraphs detail the financial operations between the companies, how they were reported for tax purposes, and the assessment made against the respondent."
+    },
+    {
+      "title": "Appellant's Argument",
+      "paragraphs": [
+        30,
+        31
+      ],
+      "reason": "These paragraphs summarize the appellant's (Minister of National Revenue's) argument that the payments should be considered income to the respondent based on employment with Campbell Limited."
+    },
+    {
+      "title": "Legal Analysis - Independent as True Income Recipient",
+      "paragraphs": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "reason": "These paragraphs cover the court's analysis of whether the payments were truly income to Independent or if the agreement was a sham, using both legal precedents and trial judge findings."
+    },
+    {
+      "title": "Conclusion and Ruling",
+      "paragraphs": [
+        4,
+        38,
+        39
+      ],
+      "reason": "These paragraphs contain the court's final decision to dismiss the appeal, summarizing the reasoning that the agreement was not a sham and upheld the legal rights intended."
+    },
+    {
+      "title": "Costs and Representation",
+      "paragraphs": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        40,
+        41,
+        42
+      ],
+      "reason": "These paragraphs detail the costs awarded and identify the legal representatives of both parties."
+    }
+  ]
+}
