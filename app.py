@@ -5,8 +5,14 @@ from core import storage
 from core.config import CASE_CITATION, CASE_NAME
 from core.rag import LEVELS, answer
 
-# "wide" lets comparison blocks use the full screen; the CSS below keeps everything else narrow
-st.set_page_config(page_title="MNR v Cameron — Q&A", page_icon=":material/gavel:", layout="wide")
+# "wide" lets comparison blocks use more of the screen; the CSS below keeps everything else narrow.
+# The sidebar starts collapsed so the chat page is clean; open it with the » arrow at the top left.
+st.set_page_config(
+    page_title="MNR v Cameron — Q&A",
+    page_icon=":material/gavel:",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
 
 # ---------- Memory for this browser session ----------
 defaults = {
@@ -32,14 +38,42 @@ st.markdown(
         margin: 0 auto;
     }
 
-    /* Comparison blocks break out of that width and use most of the screen */
+    /* Sidebar: drag its edge to resize, between 15rem and 26rem wide */
+    section[data-testid="stSidebar"][aria-expanded="true"] {
+        min-width: 15rem !important;
+        max-width: 26rem !important;
+    }
+
+    /* While the sidebar is open, always show its collapse («) button, not just on hover */
+    section[data-testid="stSidebar"][aria-expanded="true"] [data-testid="stSidebarCollapseButton"],
+    section[data-testid="stSidebar"][aria-expanded="true"] [data-testid="stSidebarCollapseButton"] button {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    /* While it's closed, hide that button completely */
+    section[data-testid="stSidebar"][aria-expanded="false"] [data-testid="stSidebarCollapseButton"] {
+        display: none !important;
+    }
+
+    /* The open (») button: pinned to the top-left corner of the screen */
+    [data-testid="stExpandSidebarButton"] {
+        position: fixed !important;
+        top: 0.75rem !important;
+        left: 0.75rem !important;
+        z-index: 999999;
+    }
+
+    /* Comparison blocks break out of the reading width, growing with the number of versions */
     div[class*="st-key-compare"] {
-        width: min(94vw, 1400px) !important;
         max-width: none !important;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
     }
+    div[class*="st-key-compare2_"] { width: min(94vw, 72rem) !important; }
+    div[class*="st-key-compare3_"] { width: min(94vw, 92rem) !important; }
+    div[class*="st-key-compare4_"] { width: min(94vw, 110rem) !important; }
 
     /* Each compared answer is a clean card */
     div[class*="st-key-card"] {
@@ -154,8 +188,8 @@ def show_exchange(client, i):
             show_version(client, ex["question"], versions[0], key=f"{i}_0")
             compare_button(client, i)
     else:
-        # Several versions: a wide block with one card per level
-        with st.container(key=f"compare_{i}"):
+        # Several versions: a block that widens with the number of cards
+        with st.container(key=f"compare{len(versions)}_{i}"):
             columns = st.columns(len(versions), gap="medium")
             for j, (col, v) in enumerate(zip(columns, versions)):
                 with col:
@@ -249,6 +283,7 @@ def chat_screen():
 
     st.title(f"Welcome, {st.session_state.name}.")
     st.subheader(f"How can I help you understand *{CASE_NAME}*?")
+    st.caption("Your saved folders are in the sidebar. Open it with the » arrow at the top left.")
 
     exchanges = st.session_state.exchanges
 
