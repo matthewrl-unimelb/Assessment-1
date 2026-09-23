@@ -3,6 +3,7 @@ from openai import OpenAI
 
 from core import storage
 from core.config import CASE_CITATION, CASE_NAME
+from core.diagram import make_diagram, wants_diagram
 from core.rag import LEVELS, answer
 
 # "wide" lets comparison blocks use more of the screen; the CSS below keeps everything else narrow.
@@ -125,6 +126,28 @@ def title_folder(client, folder_id):
     return title
 
 
+def make_version(client, question, level, history, existing_diagram=None):
+    """Answer a question at one level; if it asks for a picture, draw a diagram too.
+
+    When comparing levels, the diagram already drawn for this question is reused,
+    so every version shows the same picture and only the explanation changes.
+    """
+    version = {"level": level}
+    llm_question = question
+    if wants_diagram(question):
+        dot = existing_diagram or make_diagram(client, question)[0]
+        if dot:
+            version["diagram"] = dot
+            llm_question = (question + "\n\n(A diagram of this is being shown to the user above your answer. "
+                            "Explain what it shows in words; do not say you cannot draw.)")
+        else:
+            version["diagram_failed"] = True
+    reply, sources = answer(client, llm_question, level, history)
+    version["answer"] = reply
+    version["sources"] = sources
+    return version
+
+
 # ---------- Save-to-folder button (under every answer) ----------
 def save_to_folder_button(client, question, v, key):
     user = st.session_state.name
@@ -148,7 +171,12 @@ def save_to_folder_button(client, question, v, key):
 
 
 def show_version(client, question, v, key, show_level_caption=True):
-    """Draw one version of an answer: the text, its level, sources and save button."""
+    """Draw one version of an answer: diagram (if any), text, level, sources and save button."""
+    if v.get("diagram"):
+        st.graphviz_chart(v["diagram"], width="stretch")
+        st.caption("Diagram drawn by AI from the passages below. Check it against the sources.")
+    elif v.get("diagram_failed"):
+        st.caption("A diagram was requested but couldn't be drawn this time. Try rephrasing the request.")
     st.markdown(v["answer"])
     if show_level_caption:
         st.caption(f"Answered for: {v['level']}")
@@ -169,8 +197,10 @@ def compare_button(client, i):
             new_level = st.selectbox("Level", other_levels, key=f"regen_level_{i}")
             if st.button("Generate", key=f"regen_button_{i}"):
                 with st.spinner("Writing another version..."):
-                    reply, sources = answer(client, ex["question"], new_level, history_before(i))
-                ex["versions"].append({"answer": reply, "level": new_level, "sources": sources})
+                    existing = next((v["diagram"] for v in ex["versions"] if v.get("diagram")), None)
+                    ex["versions"].append(
+                        make_version(client, ex["question"], new_level, history_before(i), existing_diagram=existing)
+                    )
                 st.rerun()
 
 
@@ -206,7 +236,7 @@ def sidebar():
         st.markdown(f"### {user}")
         st.caption(f"Level: {st.session_state.level}")
 
-        if st.button(":material/mop: Clear chat", use_container_width=True,
+        if st.button(":material/mop: Clear chat", width="stretch",
                      disabled=not st.session_state.exchanges):
             st.session_state.exchanges = []
             st.session_state.show_all = False
@@ -233,10 +263,10 @@ def sidebar():
                         data=storage.folder_as_markdown(f["title"], items),
                         file_name=f"{f['title']}.md",
                         key=f"download_{f['id']}",
-                        use_container_width=True,
+                        width="stretch",
                     )
                 if st.button(":material/folder_delete: Delete folder", key=f"del_folder_{f['id']}",
-                             use_container_width=True):
+                             width="stretch"):
                     storage.delete_folder(user, f["id"])
                     st.rerun()
 
@@ -283,7 +313,8 @@ def chat_screen():
 
     st.title(f"Welcome, {st.session_state.name}.")
     st.subheader(f"How can I help you understand *{CASE_NAME}*?")
-    st.caption("Your saved folders are in the sidebar. Open it with the » arrow at the top left.")
+    st.caption("Your saved folders are in the sidebar (» at the top left). "
+               "Ask for a diagram, e.g. “Draw how the money flowed”, to get a picture.")
 
     exchanges = st.session_state.exchanges
 
@@ -327,12 +358,10 @@ def chat_screen():
     if asked and question.strip():
         st.session_state.level = level     # remember the last level used
         st.session_state.show_all = False  # collapse back to the latest two
-        with st.spinner("Reading the judgment..."):
-            reply, sources = answer(client, question, level, history_before(len(exchanges)))
-        exchanges.append({
-            "question": question,
-            "versions": [{"answer": reply, "level": level, "sources": sources}],
-        })
+        spinner_text = "Reading the judgment and drawing a diagram..." if wants_diagram(question) else "Reading the judgment..."
+        with st.spinner(spinner_text):
+            version = make_version(client, question, level, history_before(len(exchanges)))
+        exchanges.append({"question": question, "versions": [version]})
         st.rerun()
 
 
