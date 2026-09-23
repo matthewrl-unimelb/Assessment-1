@@ -8,13 +8,14 @@ number of retrieved chunks (TOP_K):
   A. naive       - fixed windows of 150 words with a 30-word overlap, cut
                    straight through the cleaned text (the tutorial default:
                    ignores paragraphs, quotations and the headnote).
-  B. structured  - our CHUNK_MAP chunks, embedding the chunk text only.
-  C. structured + context headers - our chunks, embedding header + text
+  B. structured  - the chunks in data/chunks.json (built by chunk.py from the
+                   reviewed chunk plan), embedding the chunk text only.
+  C. structured + context headers - the same chunks, embedding header + text
                    (this is what the app actually uses).
 
 A question counts as a "hit" if any of the top-K retrieved chunks contains
 one of the answer phrases listed for it. Out-of-scope questions are listed
-separately with the best similarity score, which should be noticeably lower.
+separately with the best similarity score.
 
 Output: data/eval_results.md (paste into the README) and a printed table.
 Cost: a few thousand embedding tokens - well under one US cent.

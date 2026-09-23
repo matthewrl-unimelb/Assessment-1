@@ -1,0 +1,124 @@
+{
+  "chunks": [
+    {
+      "title": "Case Details and Formal Outcome",
+      "paragraphs": [
+        1,
+        7,
+        40,
+        41,
+        42
+      ],
+      "reason": "These paragraphs provide the case details, including parties, judges, and the formal outcome of the appeal."
+    },
+    {
+      "title": "Legal Issue and Background",
+      "paragraphs": [
+        2,
+        3,
+        4
+      ],
+      "reason": "These paragraphs outline the legal issue regarding taxation and provide background on the relationship between the parties involved."
+    },
+    {
+      "title": "Court's Decision Summary",
+      "paragraphs": [
+        5,
+        6
+      ],
+      "reason": "These paragraphs summarize the court's decision and reasoning regarding the agreement between Campbell Limited and Independent."
+    },
+    {
+      "title": "Counsel Representation",
+      "paragraphs": [
+        8,
+        9
+      ],
+      "reason": "These paragraphs list the legal representatives for both the appellant and the respondent."
+    },
+    {
+      "title": "Introduction to Judge's Reasons",
+      "paragraphs": [
+        10,
+        11
+      ],
+      "reason": "These paragraphs introduce the judge's reasons for the decision, indicating the appeal's origin and the respondent's situation."
+    },
+    {
+      "title": "Employment and Corporate Structure",
+      "paragraphs": [
+        12,
+        13,
+        14,
+        15
+      ],
+      "reason": "These paragraphs describe the employment history of the respondent and the formation of Independent Management Ltd."
+    },
+    {
+      "title": "Agreement Between Independent and Campbell Limited",
+      "paragraphs": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ],
+      "reason": "Paragraph 16 introduces the agreement, and paragraphs 17-22 list its terms, detailing the arrangement between Independent and Campbell Limited."
+    },
+    {
+      "title": "Resignation and Appointment",
+      "paragraphs": [
+        23,
+        24
+      ],
+      "reason": "These paragraphs describe the resignation of the respondent and his associates from Campbell Limited and the subsequent appointment of the respondent as sales manager."
+    },
+    {
+      "title": "Financial Transactions and Taxation",
+      "paragraphs": [
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "reason": "These paragraphs detail the financial transactions between Campbell Limited and Independent, and the taxation implications for the respondent."
+    },
+    {
+      "title": "Appellant's Argument",
+      "paragraphs": [
+        30,
+        31
+      ],
+      "reason": "These paragraphs present the appellant's argument that the respondent's resignation was a sham and that the income should be attributed to him."
+    },
+    {
+      "title": "Court's Analysis of Agreement",
+      "paragraphs": [
+        32,
+        33,
+        34
+      ],
+      "reason": "These paragraphs analyze whether the agreement between Campbell Limited and Independent was a sham, referencing legal definitions."
+    },
+    {
+      "title": "Trial Judge's Findings",
+      "paragraphs": [
+        35,
+        36,
+        37
+      ],
+      "reason": "These paragraphs present the trial judge's findings based on testimony, supporting the legitimacy of the agreement."
+    },
+    {
+      "title": "Conclusion of Judge's Reasons",
+      "paragraphs": [
+        38,
+        39
+      ],
+      "reason": "These paragraphs conclude the judge's reasoning, affirming the legitimacy of the agreement and dismissing the appeal."
+    }
+  ]
+}
