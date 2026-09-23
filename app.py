@@ -25,6 +25,7 @@ defaults = {
     # each exchange: {"question": ..., "versions": [{"answer", "level", "sources"}, ...]}, oldest first
     "exchanges": [],
     "show_all": False,        # show every earlier question, or just the latest two?
+    "open_folder": None,      # id of the folder being viewed in the main page (None = show the chat)
 }
 for key, value in defaults.items():
     if key not in st.session_state:
@@ -190,7 +191,8 @@ def save_to_folder_button(client, question, v, key):
                 folder_id = storage.create_folder(user)
             else:
                 folder_id = folders[options.index(choice) - 1]["id"]
-            storage.save_to_folder(folder_id, question, v["level"], v["answer"])
+            storage.save_to_folder(folder_id, question, v["level"], v["answer"],
+                                   diagram=v.get("diagram"), sources=v.get("sources"))
             try:
                 with st.spinner("Updating folder title..."):
                     title = title_folder(client, folder_id)
@@ -263,17 +265,23 @@ def show_exchange(client, i):
             compare_button(client, i)
 
 
-# ---------- Sidebar: clear chat and folders ----------
+# ---------- Sidebar: clear chat and folder list ----------
 def sidebar():
     user = st.session_state.name
     with st.sidebar:
         st.markdown(f"### {user}")
         st.caption(f"Level: {st.session_state.level}")
 
+        if st.session_state.open_folder is not None:
+            if st.button(":material/arrow_back: Back to chat", width="stretch", type="primary"):
+                st.session_state.open_folder = None
+                st.rerun()
+
         if st.button(":material/mop: Clear chat", width="stretch",
                      disabled=not st.session_state.exchanges):
             st.session_state.exchanges = []
             st.session_state.show_all = False
+            st.session_state.open_folder = None
             st.rerun()
 
         st.markdown("#### Folders")
@@ -281,28 +289,69 @@ def sidebar():
         if not folders:
             st.caption("Use “Save to folder” under any answer. Folders are named automatically.")
         for f in folders:
-            items = storage.folder_items(f["id"])
-            with st.expander(f":material/folder: {f['title']} ({len(items)})"):
-                for it in items:
-                    st.markdown(f"**{it['question']}**")
-                    st.caption(f"{it['level']} · saved {it['saved_at']}")
-                    st.markdown(it["answer"])
-                    if st.button(":material/delete: Remove", key=f"del_item_{it['id']}"):
-                        storage.delete_item(it["id"])
-                        st.rerun()
-                    st.divider()
-                if items:
-                    st.download_button(
-                        ":material/download: Download folder",
-                        data=storage.folder_as_markdown(f["title"], items),
-                        file_name=f"{f['title']}.md",
-                        key=f"download_{f['id']}",
-                        width="stretch",
-                    )
-                if st.button(":material/folder_delete: Delete folder", key=f"del_folder_{f['id']}",
-                             width="stretch"):
-                    storage.delete_folder(user, f["id"])
-                    st.rerun()
+            count = len(storage.folder_items(f["id"]))
+            is_open = f["id"] == st.session_state.open_folder
+            if st.button(f":material/folder: {f['title']} ({count})", key=f"open_folder_{f['id']}",
+                         width="stretch", type="primary" if is_open else "secondary"):
+                st.session_state.open_folder = f["id"]
+                st.rerun()
+
+
+# ---------- Folder view (main page) ----------
+def folder_screen():
+    """Show a saved folder in the main page, laid out like the original chat."""
+    user = st.session_state.name
+    folder = storage.get_folder(user, st.session_state.open_folder)
+    if folder is None:                       # folder was deleted
+        st.session_state.open_folder = None
+        st.rerun()
+    items = storage.folder_items(folder["id"])
+
+    if st.button(":material/arrow_back: Back to chat"):
+        st.session_state.open_folder = None
+        st.rerun()
+
+    st.title(folder["title"])
+    st.caption(f"Folder · {len(items)} saved answer{'s' if len(items) != 1 else ''} · titled automatically by AI")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if items:
+            st.download_button(
+                ":material/download: Download folder",
+                data=storage.folder_as_markdown(folder["title"], items),
+                file_name=f"{folder['title']}.md",
+                width="stretch",
+            )
+    with col2:
+        with st.popover(":material/folder_delete: Delete folder", width="stretch"):
+            st.write("Delete this folder and everything in it?")
+            if st.button("Yes, delete it", type="primary", key="confirm_delete_folder"):
+                storage.delete_folder(user, folder["id"])
+                st.session_state.open_folder = None
+                st.rerun()
+
+    if not items:
+        st.info("This folder is empty. Use “Save to folder” under any answer.")
+
+    for it in items:
+        st.divider()
+        with st.chat_message("user", avatar=":material/person:"):
+            st.markdown(it["question"])
+        with st.chat_message("assistant", avatar=":material/gavel:"):
+            if it.get("diagram"):
+                st.graphviz_chart(it["diagram"], width="stretch")
+                st.caption("Diagram drawn by AI from the passages below. Check it against the sources.")
+            st.markdown(it["answer"])
+            st.caption(f"Answered for: {it['level']} · saved {it['saved_at']}")
+            if it["sources"]:
+                with st.expander(":material/menu_book: Sources from the judgment"):
+                    for s in it["sources"]:
+                        st.markdown(f"**{s['title']}** · {s['page_label']} · _{s['voice']}_")
+                        st.write(s["text"])
+            if st.button(":material/delete: Remove from folder", key=f"del_item_{it['id']}"):
+                storage.delete_item(it["id"])
+                st.rerun()
 
 
 # ---------- Screen 1: password ----------
@@ -350,6 +399,10 @@ def chat_screen():
         st.stop()
     client = OpenAI(api_key=api_key)
     sidebar()
+
+    if st.session_state.open_folder is not None:
+        folder_screen()
+        return
 
     st.title(f"Welcome, {st.session_state.name}.")
     st.subheader(f"How can I help you understand *{CASE_NAME}*?")
