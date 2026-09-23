@@ -1,3 +1,4 @@
+import openai
 import streamlit as st
 from openai import OpenAI
 
@@ -106,6 +107,28 @@ def history_before(index):
     return history
 
 
+def get_secret(name):
+    """Read a value from Streamlit Secrets, or None if it (or the whole secrets file) is missing."""
+    try:
+        return st.secrets[name]
+    except Exception:
+        return None
+
+
+def friendly_error(e):
+    """Turn a technical error into a plain-English message for the user."""
+    print(f"[app error] {e!r}")  # full detail goes to the logs (Streamlit Cloud: Manage app → logs)
+    if isinstance(e, openai.AuthenticationError):
+        return "The app's OpenAI key was rejected. Please let the app owner know."
+    if isinstance(e, openai.PermissionDeniedError):
+        return "The app's OpenAI key isn't allowed to use one of the models it needs. Please let the app owner know."
+    if isinstance(e, openai.RateLimitError):
+        return "OpenAI is busy or the key has run out of credit. Please wait a minute and try again."
+    if isinstance(e, (openai.APIConnectionError, openai.APITimeoutError)):
+        return "Couldn't reach OpenAI just now. Please check your connection and try again."
+    return "Something went wrong while preparing the answer. Please try again."
+
+
 def title_folder(client, folder_id):
     """Ask gpt-4o for a short title that sums up everything saved in the folder."""
     questions = [it["question"] for it in storage.folder_items(folder_id)]
@@ -135,7 +158,11 @@ def make_version(client, question, level, history, existing_diagram=None):
     version = {"level": level}
     llm_question = question
     if wants_diagram(question):
-        dot = existing_diagram or make_diagram(client, question)[0]
+        try:
+            dot = existing_diagram or make_diagram(client, question)[0]
+        except Exception as e:
+            print(f"[diagram error] {e!r}")
+            dot = None
         if dot:
             version["diagram"] = dot
             llm_question = (question + "\n\n(A diagram of this is being shown to the user above your answer. "
@@ -164,14 +191,18 @@ def save_to_folder_button(client, question, v, key):
             else:
                 folder_id = folders[options.index(choice) - 1]["id"]
             storage.save_to_folder(folder_id, question, v["level"], v["answer"])
-            with st.spinner("Updating folder title..."):
-                title = title_folder(client, folder_id)
-            st.toast(f"Saved to “{title}”", icon=":material/check:")
+            try:
+                with st.spinner("Updating folder title..."):
+                    title = title_folder(client, folder_id)
+                st.toast(f"Saved to “{title}”", icon=":material/check:")
+            except Exception as e:
+                print(f"[folder title error] {e!r}")
+                st.toast("Saved. (The folder title couldn't be updated this time.)", icon=":material/check:")
             st.rerun()
 
 
 def show_version(client, question, v, key, show_level_caption=True):
-    """Draw one version of an answer: diagram (if any), text, level, sources and save button."""
+    """Draw one version of an answer: the text, its level, sources and save button."""
     if v.get("diagram"):
         st.graphviz_chart(v["diagram"], width="stretch")
         st.caption("Diagram drawn by AI from the passages below. Check it against the sources.")
@@ -196,12 +227,15 @@ def compare_button(client, i):
         with st.popover(":material/compare_arrows: Compare with another level"):
             new_level = st.selectbox("Level", other_levels, key=f"regen_level_{i}")
             if st.button("Generate", key=f"regen_button_{i}"):
-                with st.spinner("Writing another version..."):
-                    existing = next((v["diagram"] for v in ex["versions"] if v.get("diagram")), None)
-                    ex["versions"].append(
-                        make_version(client, ex["question"], new_level, history_before(i), existing_diagram=existing)
-                    )
-                st.rerun()
+                try:
+                    with st.spinner("Writing another version..."):
+                        existing = next((v["diagram"] for v in ex["versions"] if v.get("diagram")), None)
+                        ex["versions"].append(
+                            make_version(client, ex["question"], new_level, history_before(i), existing_diagram=existing)
+                        )
+                    st.rerun()
+                except Exception as e:
+                    st.error(friendly_error(e))
 
 
 def show_exchange(client, i):
@@ -278,7 +312,9 @@ def password_screen():
     with st.form("password_form"):
         password = st.text_input("Password", type="password")
         if st.form_submit_button("Enter"):
-            if password == st.secrets["APP_PASSWORD"]:
+            if get_secret("APP_PASSWORD") is None:
+                st.error("The app isn't set up yet: no password has been configured.")
+            elif password == get_secret("APP_PASSWORD"):
                 st.session_state.authenticated = True
                 st.rerun()
             else:
@@ -308,7 +344,11 @@ def welcome_screen():
 
 # ---------- Screen 3: chat ----------
 def chat_screen():
-    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+    api_key = get_secret("OPENAI_API_KEY")
+    if not api_key:
+        st.error("The app isn't set up yet: no OpenAI key has been configured.")
+        st.stop()
+    client = OpenAI(api_key=api_key)
     sidebar()
 
     st.title(f"Welcome, {st.session_state.name}.")
@@ -359,10 +399,14 @@ def chat_screen():
         st.session_state.level = level     # remember the last level used
         st.session_state.show_all = False  # collapse back to the latest two
         spinner_text = "Reading the judgment and drawing a diagram..." if wants_diagram(question) else "Reading the judgment..."
-        with st.spinner(spinner_text):
-            version = make_version(client, question, level, history_before(len(exchanges)))
-        exchanges.append({"question": question, "versions": [version]})
-        st.rerun()
+        try:
+            with st.spinner(spinner_text):
+                version = make_version(client, question, level, history_before(len(exchanges)))
+        except Exception as e:
+            st.error(friendly_error(e) + f"  \nYour question was: “{question}”")
+        else:
+            exchanges.append({"question": question, "versions": [version]})
+            st.rerun()
 
 
 # ---------- Decide which screen to show ----------
