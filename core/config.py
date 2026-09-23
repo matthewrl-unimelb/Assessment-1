@@ -12,7 +12,7 @@ CHUNKS_PATH = ROOT / "data" / "chunks.json"
 CHROMA_PATH = ROOT / "chroma_db"
 COLLECTION = "cameron_structured"
 
-EMBED_MODEL = "text-embedding-3-small"   # must be the same at build time and query time
+EMBED_MODEL = "text-embedding-3-large"   # must be the same at build time and query time
 CHAT_MODEL = "gpt-4o"
 TOP_K = 4                                # chunks retrieved per question
 

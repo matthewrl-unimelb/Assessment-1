@@ -54,12 +54,8 @@ def main() -> None:
         metadatas=[{
             "title": c["title"],
             "voice": c["voice"],
-            "voice_label": c["voice_label"],
             "page_label": c["page_label"],
             "pages": ",".join(str(p) for p in c["pages"]),
-            "order": c["order"],
-            "has_quotation": c["has_quotation"],
-            "tokens": c["tokens"],
         } for c in chunks],
     )
     print(f"stored {col.count()} chunks in {CHROMA_PATH.name}/ (collection '{COLLECTION}')")
