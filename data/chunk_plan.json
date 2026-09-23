@@ -1,32 +1,44 @@
 {
   "chunks": [
     {
-      "title": "Case Overview",
-      "paragraphs": [
-        1
-      ],
-      "reason": "This paragraph provides a general overview of the case, including the parties involved, the dates, and the judges presiding over the appeal."
+      "title": "Case Details and Formal Outcome",
+      "paragraphs": [1, 7, 8, 9, 10, 40, 41, 42],
+      "reason": "These paragraphs provide the case details, formal outcome, and solicitor information, which are typically grouped together in legal documents."
     },
     {
-      "title": "Issue Presented",
+      "title": "Legal Issue and Summary",
       "paragraphs": [
-        2
-      ],
-      "reason": "This paragraph presents the central legal question regarding the taxation of amounts paid to a management company and their treatment as income for an employee under the assessment of income tax."
-    },
-    {
-      "title": "Facts - Background and Agreements",
-      "paragraphs": [
+        2,
         3,
+        4
+      ],
+      "reason": "These paragraphs summarize the legal issue and the case background, providing a concise overview of the dispute and the court's decision."
+    },
+    {
+      "title": "Headnote: the reporter's summary of the reasons",
+      "paragraphs": [
+        5,
+        6
+      ],
+      "reason": "These paragraphs explain the court's reasoning regarding the legal rights and obligations created by the agreement between Campbell Limited and Independent."
+    },
+    {
+      "title": "Introduction to Judge's Reasons",
+      "paragraphs": [11],
+      "reason": "These paragraphs introduce the judge's reasons for the decision, setting the stage for the detailed analysis that follows."
+    },
+    {
+      "title": "Background of Respondent's Employment",
+      "paragraphs": [
         12,
         13,
         14,
         15
       ],
-      "reason": "These paragraphs provide the background facts of the case, including the employment history of the parties involved and the formation of the management company, Independent."
+      "reason": "These paragraphs provide the background of the respondent's employment and the formation of Independent Management Ltd., which is crucial for understanding the context of the case."
     },
     {
-      "title": "Facts - Agreement and Implementation",
+      "title": "Agreement Between Independent and Campbell Limited",
       "paragraphs": [
         16,
         17,
@@ -34,14 +46,20 @@
         19,
         20,
         21,
-        22,
+        22
+      ],
+      "reason": "Paragraph 16 introduces the agreement, and paragraphs 17-22 list its terms, which should be kept together as they form a single agreement."
+    },
+    {
+      "title": "Resignation and Appointment",
+      "paragraphs": [
         23,
         24
       ],
-      "reason": "These paragraphs explain the specific agreement between Independent and Campbell Limited, the roles assigned under the agreement, and how the personnel changes were implemented."
+      "reason": "These paragraphs describe the resignation of the respondent and his appointment as sales manager, which are key events in the case."
     },
     {
-      "title": "Facts - Financial Operations and Tax Assessments",
+      "title": "Financial Transactions and Taxation",
       "paragraphs": [
         25,
         26,
@@ -49,50 +67,49 @@
         28,
         29
       ],
-      "reason": "These paragraphs detail the financial operations between the companies, how they were reported for tax purposes, and the assessment made against the respondent."
+      "reason": "These paragraphs detail the financial transactions and taxation issues, which are central to the dispute."
     },
     {
       "title": "Appellant's Argument",
-      "paragraphs": [
-        30,
-        31
-      ],
-      "reason": "These paragraphs summarize the appellant's (Minister of National Revenue's) argument that the payments should be considered income to the respondent based on employment with Campbell Limited."
+      "paragraphs": [30],
+      "reason": "These paragraphs outline the appellant's argument that the respondent was still a servant of Campbell Limited and that the agreement was a sham."
+    },
+        {
+      "title": "Employment Case Analysis",
+      "paragraphs": [31],
+      "reason": "Manual Edit of LLM recommendations"
     },
     {
-      "title": "Legal Analysis - Independent as True Income Recipient",
+      "title": "Court's Analysis of Agreement and Income",
       "paragraphs": [
-        32,
+        32
+      ],
+      "reason": "Manual Edit: Introduction to the analysis and income"
+    },
+        {
+      "title": "Court's Argument and Definition of Sham",
+      "paragraphs": [
         33,
-        34,
+        34
+      ],
+      "reason": "Manual Edit: Sham-only chunk"
+    },
+    {
+      "title": "Trial Judge's Findings",
+      "paragraphs": [
         35,
         36,
         37
       ],
-      "reason": "These paragraphs cover the court's analysis of whether the payments were truly income to Independent or if the agreement was a sham, using both legal precedents and trial judge findings."
+      "reason": "These paragraphs present the trial judge's findings based on testimony, which are important for understanding the court's decision."
     },
     {
-      "title": "Conclusion and Ruling",
+      "title": "Conclusion of Judge's Reasons",
       "paragraphs": [
-        4,
         38,
         39
       ],
-      "reason": "These paragraphs contain the court's final decision to dismiss the appeal, summarizing the reasoning that the agreement was not a sham and upheld the legal rights intended."
-    },
-    {
-      "title": "Costs and Representation",
-      "paragraphs": [
-        7,
-        8,
-        9,
-        10,
-        11,
-        40,
-        41,
-        42
-      ],
-      "reason": "These paragraphs detail the costs awarded and identify the legal representatives of both parties."
+      "reason": "These paragraphs conclude the judge's reasons, affirming the decision and dismissing the appeal."
     }
   ]
 }

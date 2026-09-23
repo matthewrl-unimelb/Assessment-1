@@ -50,7 +50,7 @@ response = client.chat.completions.create(
 
 # 6. Save OpenAI's suggestion to a file, and print it
 plan = json.loads(response.choices[0].message.content)
-with open("data/chunk_plan.json", "w") as f:
+with open("data/chunk_plan_llm.json", "w") as f:
     json.dump(plan, f, indent=2)
 
 for chunk in plan["chunks"]:
